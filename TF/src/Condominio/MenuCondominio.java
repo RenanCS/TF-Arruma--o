@@ -39,6 +39,7 @@ public class MenuCondominio extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	 //Estive aqui
 	public MenuCondominio() {
 		setTitle("Alpro2 - Menu");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
