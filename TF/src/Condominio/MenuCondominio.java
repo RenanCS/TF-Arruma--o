@@ -117,7 +117,7 @@ public class MenuCondominio extends JFrame {
 				if(rdbtnCadastrarVisitante.isSelected()){
 				      InterfaceVisitante visitante  = new InterfaceVisitante();  
 			          visitante.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  
-			          visitante.setLocation(null);  
+			          visitante.setLocationRelativeTo(null);  
 			          visitante.setVisible(true);  
 				}
 				
