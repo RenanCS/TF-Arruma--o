@@ -130,6 +130,8 @@ public class InterfaceMorador extends JFrame {
 			morador.setNapto(Integer.parseInt(apto));
 			morador.setTelefone(Integer.parseInt(telefone);
 			
+			mo.add(new Morador(nome, cpf, apto, telefone);
+			
 			
 		}
 
