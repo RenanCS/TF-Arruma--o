@@ -1,6 +1,6 @@
 package Condominio;
 
-public class Pessoa {
+public class Pessoa Comparable <Pessoa> {
 	
 	public String nome;
 	public int CPF;

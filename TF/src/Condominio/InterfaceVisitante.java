@@ -57,15 +57,18 @@ public class InterfaceVisitante extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNome = new JLabel("Nome:");
-		lblNome.setBounds(45, 113, 46, 14);
+		lblNome.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblNome.setBounds(21, 110, 46, 14);
 		contentPane.add(lblNome);
 		
 		JLabel lblCpf = new JLabel("CPF:");
-		lblCpf.setBounds(45, 144, 46, 14);
+		lblCpf.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblCpf.setBounds(21, 143, 46, 14);
 		contentPane.add(lblCpf);
 		
-		JLabel lblNmeroApto = new JLabel("N\u00FAmero Apto.:");
-		lblNmeroApto.setBounds(45, 185, 71, 14);
+		JLabel lblNmeroApto = new JLabel("N\u00FAmero Apto:");
+		lblNmeroApto.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblNmeroApto.setBounds(21, 182, 92, 14);
 		contentPane.add(lblNmeroApto);
 		
 		txtNome = new JTextField();
@@ -74,12 +77,12 @@ public class InterfaceVisitante extends JFrame {
 		txtNome.setColumns(10);
 		
 		txtCPF = new JTextField();
-		txtCPF.setBounds(121, 141, 266, 20);
+		txtCPF.setBounds(121, 141, 92, 20);
 		contentPane.add(txtCPF);
 		txtCPF.setColumns(10);
 		
 		txtApto = new JTextField();
-		txtApto.setBounds(126, 182, 71, 20);
+		txtApto.setBounds(123, 179, 71, 20);
 		contentPane.add(txtApto);
 		txtApto.setColumns(10);
 		
@@ -89,7 +92,7 @@ public class InterfaceVisitante extends JFrame {
 				cadastrar();
 			}
 		});
-		btnVisitante.setBounds(239, 172, 147, 33);
+		btnVisitante.setBounds(238, 157, 148, 48);
 		contentPane.add(btnVisitante);
 		
 		JLabel lblCadastroDeVisitantes = new JLabel("Cadastro de Visitantes");

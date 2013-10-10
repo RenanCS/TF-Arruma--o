@@ -16,5 +16,16 @@ public class Verificacao {
 			
 	}
 	
+	public boolean ValidacaoMorador(String nome, String cpf, String apto, String telefone){
+		
+		if( nome.equals("")){ return true;}
+		if( cpf.equals("") || cpf.length() <= 10 ){ return true;}
+		if( apto.equals("") || apto.length() <=0 ){ return true;}
+		if( telefone.equals("") || telefone.length() <= 7 ){ return true;}
+
+		return false;
+			
+	}
+	
 }
 
