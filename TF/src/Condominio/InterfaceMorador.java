@@ -46,6 +46,7 @@ public class InterfaceMorador extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * estuve aqui
 	 */
 	public InterfaceMorador() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
