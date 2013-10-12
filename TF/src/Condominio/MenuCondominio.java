@@ -9,6 +9,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
@@ -16,6 +17,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+
+import java.awt.Toolkit;
 
 public class MenuCondominio extends JFrame {
 
@@ -41,6 +44,7 @@ public class MenuCondominio extends JFrame {
 	 * Create the frame.
 	 */
 	public MenuCondominio() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("L:\\PUCRS\\2\u00BA Semestre\\Alpro2\\condominio.jpg"));
 		setTitle("Alpro2 - Menu");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -57,13 +61,21 @@ public class MenuCondominio extends JFrame {
 		JMenuItem mntmNewMenuItem = new JMenuItem("Morador");
 		mnCadastrar.add(mntmNewMenuItem);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("Visitante");
-		mnCadastrar.add(mntmNewMenuItem);
+		JMenuItem mntmNewMenuItem1 = new JMenuItem("Visitante");
+		mnCadastrar.add(mntmNewMenuItem1);
 		
 	
 
 		JMenu mnHelp = new JMenu("Help");
 		menuBar.add(mnHelp);
+		
+		JMenuItem mntmSobre = new JMenuItem("About Condominio");
+		mnHelp.add(mntmSobre);
+		
+		JMenuItem mntmContato = new JMenuItem("Contato Fornecer");
+		mnHelp.add(mntmContato);
+		
+		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -72,38 +84,45 @@ public class MenuCondominio extends JFrame {
 		JLabel lblMenu = new JLabel("Menu");
 		lblMenu.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMenu.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblMenu.setBounds(124, 31, 156, 44);
+		lblMenu.setBounds(122, 11, 156, 44);
 		contentPane.add(lblMenu);
 		
 		
 
-		final JRadioButton rdbtnCadastrarVisitante = new JRadioButton(
-				"Cadastrar Visitante");
+		final JRadioButton rdbtnCadastrarVisitante = new JRadioButton("Cadastrar Visitante");
 		rdbtnCadastrarVisitante.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		rdbtnCadastrarVisitante.setBounds(32, 102, 156, 23);
+		rdbtnCadastrarVisitante.setBounds(49, 80, 156, 23);
 		contentPane.add(rdbtnCadastrarVisitante);
 
-		final JRadioButton rdbtnCadastrarMorador = new JRadioButton(
-				"Cadastrar Morador");
+		final JRadioButton rdbtnCadastrarMorador = new JRadioButton("Cadastrar Morador");
 		rdbtnCadastrarMorador.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		rdbtnCadastrarMorador.setBounds(32, 128, 156, 23);
+		rdbtnCadastrarMorador.setBounds(49, 128, 156, 23);
 		contentPane.add(rdbtnCadastrarMorador);
 
-		final JRadioButton rdbtnVisitaMes = new JRadioButton(
-				"Consultar Visitas");
+		final JRadioButton rdbtnVisitaMes = new JRadioButton("Consultar Visitas");
 		rdbtnVisitaMes.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		rdbtnVisitaMes.setBounds(204, 128, 188, 23);
+		rdbtnVisitaMes.setBounds(240, 80, 188, 23);
 		contentPane.add(rdbtnVisitaMes);
+		
+		final JRadioButton rbtQuantidade = new JRadioButton("Quantidade Moradores");
+		rbtQuantidade.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		rbtQuantidade.setBounds(240, 130, 188, 23);
+		contentPane.add(rbtQuantidade);
 
 		ButtonGroup opcao = new ButtonGroup();
 		opcao.add(rdbtnVisitaMes);
 		opcao.add(rdbtnCadastrarMorador);
 		opcao.add(rdbtnCadastrarVisitante);
+		opcao.add(rbtQuantidade);
 
 		JButton btnOk = new JButton("OK");
+		btnOk.setBounds(140, 195, 156, 33);
+		contentPane.add(btnOk);
+		
 		btnOk.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
+				Memoria memoria = new Memoria();
 
 				if (rdbtnVisitaMes.isSelected()) {
 					InterfaceConsultaVisita consultavisitante = new InterfaceConsultaVisita();
@@ -126,10 +145,14 @@ public class MenuCondominio extends JFrame {
 					visitante.setLocationRelativeTo(null);
 					visitante.setVisible(true);
 				}
+				if (rbtQuantidade.isSelected()) {
+					JOptionPane.showMessageDialog(null,"QUANTIDADE DE MORADORES SÃO: " + memoria.tamanhoMorador());
+				}
 
+				
 			}
 		});
-		btnOk.setBounds(140, 195, 156, 33);
-		contentPane.add(btnOk);
+		
+	
 	}
 }

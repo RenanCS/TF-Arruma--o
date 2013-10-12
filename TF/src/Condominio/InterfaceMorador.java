@@ -21,12 +21,15 @@ import java.util.ArrayList;
 
 public class InterfaceMorador extends JFrame {
 	
-	ArrayList<Morador> mo = new ArrayList <Morador>();
 	private JPanel contentPane;
 	private JTextField txtNomeMorador;
 	private JTextField txtCPFMorador;
 	private JTextField txtAptoMorador;
 	private JTextField txtTelefoneMorador;
+	Memoria memoria = new Memoria();
+	Morador morador;
+	Verificacao verifica = new Verificacao();
+
 
 	/**
 	 * Launch the application.
@@ -46,7 +49,6 @@ public class InterfaceMorador extends JFrame {
 
 	/**
 	 * Create the frame.
-	 * estuve aqui
 	 */
 	public InterfaceMorador() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -117,8 +119,6 @@ public class InterfaceMorador extends JFrame {
 
 	private void validacao() {
 
-		Morador morador;
-		Verificacao verifica = new Verificacao();
 
 		
 		String nome = txtNomeMorador.getText();
@@ -127,12 +127,13 @@ public class InterfaceMorador extends JFrame {
 		String telefone = txtTelefoneMorador.getText();
 		
 		if(!verifica.ValidacaoMorador(nome, cpf, apto, telefone)){
-		    morador = new Morador();
-			morador.setNome(nome);
-			morador.setCPF(Integer.parseInt(cpf));
-			morador.setNapto(Integer.parseInt(apto));
-			morador.setTelefone(Integer.parseInt(telefone));
-			mo.add(morador);	
+		    morador = new Morador(nome, (Integer.parseInt(cpf)),(Integer.parseInt(apto)),(Integer.parseInt(telefone)));
+		    
+			memoria.adicionarMorador(morador);	
+			
+			JOptionPane.showMessageDialog(null,"CADASTRO MORADOR EFETUADO COM SUCESSO!");
+			dispose();
+			
 		}
 		else{
 			 JOptionPane.showMessageDialog(null,"EXISTE CAMPOS EM ABERTO");

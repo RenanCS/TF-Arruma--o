@@ -19,6 +19,13 @@ public class Morador extends Pessoa{
 
 	public void setTelefone(int telefone) {
 		this.telefone = telefone;
+	}
+
+	@Override
+	public String toString() {
+		return "Morador [" + nome + "," + telefone + ","+ CPF + "," + napto + "]";
 	}	
+	
+	
 	
 }

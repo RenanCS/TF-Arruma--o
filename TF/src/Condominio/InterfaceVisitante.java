@@ -122,10 +122,8 @@ public class InterfaceVisitante extends JFrame {
 				pes.setCPF(Integer.parseInt(CPF));
 				pes.setNapto(Integer.parseInt(apto));			
 				memoria.adicionaPes(pes); 
-				JOptionPane.showMessageDialog(null,"Cadastro do Morador, Efetuado com Sucesso!");
+				JOptionPane.showMessageDialog(null,"CADASTRO VISITANTE EFETUADO COM SUCESSO!");
 				dispose();
-				
-			
 	
 			}
 			else{

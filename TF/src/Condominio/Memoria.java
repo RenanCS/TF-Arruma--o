@@ -5,17 +5,29 @@ import java.util.ArrayList;
 public class Memoria {
 
 
-    private ArrayList<Pessoa> pessoa;   
+    private static ArrayList<Pessoa> pessoa;  
+    private static ArrayList<Morador> morador;
+	LeituraGravacaoArquivo arquivo;
 	
 	Memoria(){
 		pessoa = new ArrayList<Pessoa>();
+		morador = new ArrayList<Morador>();
 		
 	}
 	
-	public boolean adicionaPes(Pessoa pes){
-		return pessoa.add(pes);
+	public void adicionaPes(Pessoa pes){
+		pessoa.add(pes);
 	}
 	
+	public void adicionarMorador(Morador mo){
+		morador.add(mo);		
+		LeituraGravacaoArquivo.gravarDados(morador);
+	}
 	
+	public int tamanhoMorador(){
+		int contador;
+		contador = morador.size();
+		return contador;
+	}
 	
 }

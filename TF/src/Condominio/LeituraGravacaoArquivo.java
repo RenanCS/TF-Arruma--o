@@ -1,6 +1,8 @@
-package Condominio;
+	package Condominio;
 
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.Charset;
@@ -11,27 +13,34 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class LeituraGravacaoArquivo{
+	
+	private ArrayList morador;
 
 	LeituraGravacaoArquivo(int x){
 	
-	if (x==1){gravarDados();}
+	if (x==1){gravarDados(morador);}
 	else { lerDados();}
 	
 }
 	
 
+	
+	
 
-
-public void gravarDados() {
+public static void gravarDados(ArrayList<Morador> mo) {
 		
-		ArrayList<Pessoa> lista = new ArrayList<Pessoa>();
-		// ... preenche lista com objetos Pessoa
-
-		Path moradores = Paths.get("moradores.txt");
-		try (PrintWriter gravar = new PrintWriter(Files.newBufferedWriter(moradores, Charset.defaultCharset())))
-		{
-		    for(Pessoa p: lista)
-		    	gravar.format( "%s; %s; %s; %n", p.getNome(), p.getCPF(), p.getNapto() );
+		try 
+		{	
+		
+			String caminho = "C:/Users/Renan/git/TF-Arruma--o/TF/src/Condominio/moradores.txt";
+			FileWriter escrita = new FileWriter (caminho);
+			BufferedWriter gravar = new BufferedWriter(escrita);
+			
+			for(int i=0; i<mo.size(); i++){	
+				gravar.write(mo.get(i).toString());
+				gravar.newLine();
+			}
+		
 		}
 		catch (IOException x)
 		{
@@ -39,6 +48,8 @@ public void gravarDados() {
 		}		
 		
 }
+
+
 
 public void lerDados() {
 	Pessoa pes = new Pessoa();
