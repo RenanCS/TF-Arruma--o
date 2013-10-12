@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
@@ -19,7 +20,8 @@ import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
 public class InterfaceMorador extends JFrame {
-
+	
+	ArrayList<Morador> mo = new ArrayList <Morador>();
 	private JPanel contentPane;
 	private JTextField txtNomeMorador;
 	private JTextField txtCPFMorador;
@@ -114,9 +116,9 @@ public class InterfaceMorador extends JFrame {
 
 	private void validacao() {
 
-		Morador morador = new Morador();
+		Morador morador;
 		Verificacao verifica = new Verificacao();
-		ArrayList<Morador> mo = new ArrayList <Morador>();
+
 		
 		String nome = txtNomeMorador.getText();
 		String cpf = txtCPFMorador.getText();
@@ -124,16 +126,17 @@ public class InterfaceMorador extends JFrame {
 		String telefone = txtTelefoneMorador.getText();
 		
 		if(!verifica.ValidacaoMorador(nome, cpf, apto, telefone)){
-			 
+		    morador = new Morador();
 			morador.setNome(nome);
 			morador.setCPF(Integer.parseInt(cpf));
 			morador.setNapto(Integer.parseInt(apto));
-			morador.setTelefone(Integer.parseInt(telefone);
-			
-			mo.add(new Morador(nome, cpf, apto, telefone);
-			
-			
+			morador.setTelefone(Integer.parseInt(telefone));
+			mo.add(morador);	
 		}
+		else{
+			 JOptionPane.showMessageDialog(null,"EXISTE CAMPOS EM ABERTO");
+		}
+		
 
 		
 	}
