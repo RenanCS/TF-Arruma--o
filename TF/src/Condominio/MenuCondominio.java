@@ -54,11 +54,13 @@ public class MenuCondominio extends JFrame {
 		JMenu mnCadastrar = new JMenu("Cadastrar");
 		mnMenu.add(mnCadastrar);
 
-		JMenuItem mntmMorador = new JMenuItem("Morador");
-		mnCadastrar.add(mntmMorador);
-
-		JMenuItem mntmNewMenuItem = new JMenuItem("New menu item");
+		JMenuItem mntmNewMenuItem = new JMenuItem("Morador");
 		mnCadastrar.add(mntmNewMenuItem);
+		
+		JMenuItem mntmNewMenuItem = new JMenuItem("Visitante");
+		mnCadastrar.add(mntmNewMenuItem);
+		
+	
 
 		JMenu mnHelp = new JMenu("Help");
 		menuBar.add(mnHelp);
@@ -72,6 +74,8 @@ public class MenuCondominio extends JFrame {
 		lblMenu.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblMenu.setBounds(124, 31, 156, 44);
 		contentPane.add(lblMenu);
+		
+		
 
 		final JRadioButton rdbtnCadastrarVisitante = new JRadioButton(
 				"Cadastrar Visitante");
