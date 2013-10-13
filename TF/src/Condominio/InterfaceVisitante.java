@@ -1,6 +1,9 @@
 package Condominio;
 
 import java.awt.EventQueue;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -108,20 +111,24 @@ public class InterfaceVisitante extends JFrame {
 	private void cadastrar() {
 		
 		Memoria memoria = new Memoria();
-		Pessoa pes = new Pessoa();
+		Visitante vis = new Visitante();
 		Verificacao verificar = new Verificacao();
 		
-		
+			String novoFormato = null;  
 			String nome = txtNome.getText();
 			String CPF = txtCPF.getText();
 			String apto = txtApto.getText();
 			
 			if(!(verificar.Validacao(nome, CPF, apto))){
 				
-				pes.setNome(nome);
-				pes.setCPF(Integer.parseInt(CPF));
-				pes.setNapto(Integer.parseInt(apto));			
-				memoria.adicionaPes(pes); 
+				SimpleDateFormat data = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");    
+				Calendar cal = new GregorianCalendar();   
+				
+				vis.setNome(nome);
+				vis.setCPF(Integer.parseInt(CPF));
+				vis.setNapto(Integer.parseInt(apto));	
+				vis.setTime( novoFormato.format(data.format(cal.getTime())));
+				memoria.adicionaPes(vis); 
 				JOptionPane.showMessageDialog(null,"CADASTRO VISITANTE EFETUADO COM SUCESSO!");
 				dispose();
 	
