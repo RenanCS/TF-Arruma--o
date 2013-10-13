@@ -5,10 +5,13 @@ import java.util.ArrayList;
 public class Memoria {
 
 
-    private static ArrayList<Pessoa> pessoa;  
-    ArrayList<Morador> morador = new ArrayList<Morador>();
-	ArrayList<Visitante> visitante = new ArrayList<Visitante>();
+    private ArrayList<Morador> morador; 
+	private ArrayList<Visitante> visitante; 
 	
+    Memoria(){
+    	morador = new ArrayList<Morador>();
+    	visitante = new ArrayList<Visitante>();
+    }
 	
 	public void adicionaPes(Visitante vis){
 		visitante.add(vis);
