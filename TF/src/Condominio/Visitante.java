@@ -1,5 +1,7 @@
 package Condominio;
 
+import java.util.List;
+
 public class Visitante extends Pessoa {
 
 private String time; 
