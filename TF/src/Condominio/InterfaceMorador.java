@@ -107,9 +107,7 @@ public class InterfaceMorador extends JFrame {
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			
 				validacao();
-			
 			}
 		});
 		btnCadastrar.setBounds(129, 199, 193, 38);
@@ -118,8 +116,6 @@ public class InterfaceMorador extends JFrame {
 	
 
 	private void validacao() {
-
-
 		
 		String nome = txtNomeMorador.getText();
 		String cpf = txtCPFMorador.getText();
@@ -127,7 +123,7 @@ public class InterfaceMorador extends JFrame {
 		String telefone = txtTelefoneMorador.getText();
 		
 		if(!verifica.ValidacaoMorador(nome, cpf, apto, telefone)){
-		    morador = new Morador(nome, (Integer.parseInt(cpf)),(Integer.parseInt(apto)),(Integer.parseInt(telefone)));
+		    morador = new Morador(nome, cpf, apto, telefone);
 		    
 			memoria.adicionarMorador(morador);	
 			

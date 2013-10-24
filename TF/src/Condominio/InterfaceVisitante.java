@@ -125,9 +125,9 @@ public class InterfaceVisitante extends JFrame {
 				Calendar cal = new GregorianCalendar();   
 				
 				vis.setNome(nome);
-				vis.setCPF(Integer.parseInt(CPF));
-				vis.setNapto(Integer.parseInt(apto));	
-				vis.setTime( novoFormato.format(data.format(cal.getTime())));
+				vis.setCPF(CPF);
+				vis.setNapto(apto);	
+				vis.setTime( String.format(data.format(cal.getTime())));
 				memoria.adicionaPes(vis); 
 				JOptionPane.showMessageDialog(null,"CADASTRO VISITANTE EFETUADO COM SUCESSO!");
 				dispose();

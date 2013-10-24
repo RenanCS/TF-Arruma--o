@@ -125,9 +125,8 @@ public class MenuCondominio extends JFrame {
 				Memoria memoria = new Memoria();
 
 				if (rdbtnVisitaMes.isSelected()) {
-					InterfaceConsultaVisita consultavisitante = new InterfaceConsultaVisita();
-					consultavisitante
-							.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+					GridVisitantes consultavisitante = new GridVisitantes();
+					consultavisitante.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 					consultavisitante.setLocationRelativeTo(null);
 					consultavisitante.setVisible(true);
 

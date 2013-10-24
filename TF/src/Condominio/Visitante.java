@@ -6,7 +6,7 @@ public class Visitante extends Pessoa {
 
 private String time; 
 	
-	Visitante(String nome, int CPF, int napto, int telefone, String time){
+	Visitante(String nome, String CPF, String napto, String telefone, String time){
 	super(nome, CPF, napto);
 	setTime(time);
 	}

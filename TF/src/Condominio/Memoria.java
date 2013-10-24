@@ -7,6 +7,7 @@ public class Memoria {
 
     private ArrayList<Morador> morador; 
 	private ArrayList<Visitante> visitante; 
+	private int contador;
 	
     Memoria(){
     	morador = new ArrayList<Morador>();
@@ -16,16 +17,17 @@ public class Memoria {
 	public void adicionaPes(Visitante vis){
 		visitante.add(vis);
 		LeituraGravacaoArquivo.gravarDadosVisitante(visitante);
+		ContatoTableModel tabela = new ContatoTableModel(visitante);
 	}
 	
 	public void adicionarMorador(Morador mo){
 		morador.add(mo);		
 		LeituraGravacaoArquivo.gravarDados(morador);
+		contador++;
 	}
 	
 	public int tamanhoMorador(){
-		int contador;
-		contador = morador.size();
+		contador = visitante.size();
 		return contador;
 	}
 	

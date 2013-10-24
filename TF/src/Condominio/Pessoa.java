@@ -3,10 +3,10 @@ package Condominio;
 public class Pessoa{
 	
 	public String nome;
-	public int CPF;
-	public int napto;
+	public String CPF;
+	public String napto;
 	
-	Pessoa(String nome, int CPF, int napto){
+	Pessoa(String nome, String CPF, String napto){
 		
 	setNome(nome);
 	setCPF(CPF);
@@ -29,19 +29,19 @@ public class Pessoa{
 		this.nome = nome;
 	}
 
-	public int getCPF() {
+	public String getCPF() {
 		return CPF;
 	}
 
-	public void setCPF(int cPF) {
+	public void setCPF(String cPF) {
 		CPF = cPF;
 	}
 
-	public int getNapto() {
+	public String getNapto() {
 		return napto;
 	}
 
-	public void setNapto(int napto) {
+	public void setNapto(String napto) {
 		this.napto = napto;
 	}
 

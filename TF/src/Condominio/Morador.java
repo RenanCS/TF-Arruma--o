@@ -2,9 +2,9 @@ package Condominio;
 
 public class Morador extends Pessoa{
 
-	private int telefone; 
+	private String telefone; 
 	
-	Morador(String nome, int CPF, int napto, int telefone){
+	Morador(String nome, String CPF, String napto, String telefone){
 	super(nome, CPF, napto);
 	setTelefone(telefone);
 	}
@@ -13,11 +13,11 @@ public class Morador extends Pessoa{
 		
 	}
 
-	public int getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
 
-	public void setTelefone(int telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 
