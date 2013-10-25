@@ -17,7 +17,6 @@ public class Memoria {
 	public void adicionaPes(Visitante vis){
 		visitante.add(vis);
 		LeituraGravacaoArquivo.gravarDadosVisitante(visitante);
-		ContatoTableModel tabela = new ContatoTableModel(visitante);
 	}
 	
 	public void adicionarMorador(Morador mo){
@@ -29,6 +28,10 @@ public class Memoria {
 	public int tamanhoMorador(){
 		contador = visitante.size();
 		return contador;
+	}
+
+	public void adicionaPesLeitura(Visitante pessoaVisitante) {
+		visitante.add(pessoaVisitante);
 	}
 	
 }

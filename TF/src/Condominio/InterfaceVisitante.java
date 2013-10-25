@@ -30,7 +30,7 @@ public class InterfaceVisitante extends JFrame {
 	private JTextField txtNome;
 	private JTextField txtCPF;
 	private JTextField txtApto;
-
+	Memoria memoria = new Memoria();
 	/**
 	 * Launch the application.
 	 */
@@ -110,7 +110,6 @@ public class InterfaceVisitante extends JFrame {
 	 */
 	private void cadastrar() {
 		
-		Memoria memoria = new Memoria();
 		Visitante vis = new Visitante();
 		Verificacao verificar = new Verificacao();
 		

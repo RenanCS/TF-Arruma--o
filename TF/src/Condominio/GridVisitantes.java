@@ -15,7 +15,7 @@ public class GridVisitantes extends JFrame {
 
 	private JTable  		tblVisitante;
 	private ContatoTableModel model;
-	
+	LeituraGravacaoArquivo grave;
 	public GridVisitantes(){
 		super("Visitante");
 		initialize();
@@ -29,9 +29,10 @@ public class GridVisitantes extends JFrame {
 	}
 
 	private JTable getTblVisitantes() {
+		grave = new LeituraGravacaoArquivo();
 		if (tblVisitante == null) {
 			tblVisitante = new JTable();
-			tblVisitante.setModel(new ContatoTableModel());
+			tblVisitante.setModel(new ContatoTableModel(grave.lerDadosVisitante()));
 		}
 		return tblVisitante;
 	}

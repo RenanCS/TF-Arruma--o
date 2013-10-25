@@ -9,12 +9,9 @@ import javax.swing.event.TableModelEvent;
 import javax.swing.table.AbstractTableModel;
 
 public class ContatoTableModel extends AbstractTableModel{
-
-		
+	
 	private List<Visitante> dados;
 	private String[] colunas = {"Visitante", "CPF", "Morador", "Data/Hora"};
-	
-
 	
 	public ContatoTableModel(){
 		dados = new ArrayList<Visitante>();
@@ -60,7 +57,7 @@ public class ContatoTableModel extends AbstractTableModel{
         switch (columnIndex) {
 
         case 0: // Primeira coluna é o nome, que é uma String.
-            return Long.class;
+            return String.class;
         case 1: // Segunda coluna é o CPF, que também é uma String..
             return String.class;
         case 2: // Segunda coluna é o Nome do Morador, que também é uma String.
@@ -81,7 +78,7 @@ public class ContatoTableModel extends AbstractTableModel{
      * pelos índices da linha e da coluna. */
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        // Pega o sócio da linha especificada.       
+        // Pega o pessoa da linha especificada.       
         Visitante vis = dados.get(rowIndex);
         Pessoa pes = dados.get(rowIndex);
 

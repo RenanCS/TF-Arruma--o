@@ -19,6 +19,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 import java.awt.Toolkit;
+import java.util.ArrayList;
 
 public class MenuCondominio extends JFrame {
 

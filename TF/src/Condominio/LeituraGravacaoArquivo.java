@@ -1,10 +1,17 @@
 	package Condominio;
 
 
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.PrintWriter;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public class LeituraGravacaoArquivo{
@@ -39,7 +46,7 @@ public static void gravarDadosVisitante(ArrayList<Visitante> vis) {
 		PrintWriter gravarArq = new PrintWriter(arq);
 		for (int i=0; i<vis.size(); i++)
 			{ 
-			gravarArq.printf("%s - %s - %s - %s; %n", vis.get(i).getNome(), vis.get(i).getCPF(), vis.get(i).getNapto(), vis.get(i).getTime()); 
+			gravarArq.printf("%s-%s-%s-%s%n", vis.get(i).getNome(), vis.get(i).getCPF(), vis.get(i).getNapto(), vis.get(i).getTime()); 
 			} 
 			gravarArq.close();
 		
@@ -52,10 +59,40 @@ public static void gravarDadosVisitante(ArrayList<Visitante> vis) {
 
 
 
-public void lerDados() {
-		
-	
+public static ArrayList lerDadosVisitante() {
+	 
+	ArrayList<Visitante> vis = new ArrayList<Visitante>();
+	Memoria memoria = new Memoria();
+	Path path2 = Paths.get("visitante.txt");
+	try (Scanner sc = new Scanner(Files.newBufferedReader(path2, Charset.defaultCharset())))
+	{
+	    sc.useDelimiter("[-\n]"); // separadores: - e nova linha
+	    //String header = sc.nextLine(); // pula cabeçalho
+	    String nome, cpf, data, telefone, napto; 
+	    
+	    while (sc.hasNext()) {
+	    	nome = sc.next();
+	        cpf = sc.next();
+	        napto = sc.next();
+	        data = sc.next();
+	        vis.add(PessoaVisitante(nome, cpf, napto, data));
+	     }
+	    return vis
+	    		;
 	}
+	catch (IOException x)
+	{
+	    System.err.format("Erro de E/S: %s%n", x);
+	}
+	return null;
+	
+}
+
+
+private static Visitante PessoaVisitante(String nome, String cpf, String napto, String data) {
+	 Visitante vis;
+	 return vis = new Visitante(nome, cpf, napto, data);
+}	
 
 
 }
