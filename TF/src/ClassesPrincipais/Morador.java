@@ -1,10 +1,11 @@
-package Condominio;
+package ClassesPrincipais;
+
 
 public class Morador extends Pessoa{
 
 	private String telefone; 
 	
-	Morador(String nome, String CPF, String napto, String telefone){
+	public Morador(String nome, String CPF, String napto, String telefone){
 	super(nome, CPF, napto);
 	setTelefone(telefone);
 	}

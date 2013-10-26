@@ -1,4 +1,4 @@
-package Condominio;
+package Interfaces;
 
 import java.awt.EventQueue;
 import java.text.SimpleDateFormat;
@@ -18,6 +18,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+
+import ClassesPrincipais.Visitante;
+import Condominio.Memoria;
+import Condominio.Verificacao;
 
 public class InterfaceVisitante extends JFrame {
 	
@@ -113,7 +117,6 @@ public class InterfaceVisitante extends JFrame {
 		Visitante vis = new Visitante();
 		Verificacao verificar = new Verificacao();
 		
-			String novoFormato = null;  
 			String nome = txtNome.getText();
 			String CPF = txtCPF.getText();
 			String apto = txtApto.getText();

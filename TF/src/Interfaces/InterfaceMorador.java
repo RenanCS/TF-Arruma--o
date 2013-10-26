@@ -1,4 +1,4 @@
-package Condominio;
+package Interfaces;
 
 
 import java.awt.EventQueue;
@@ -15,6 +15,10 @@ import java.awt.Font;
 
 import javax.swing.SwingConstants;
 
+import ClassesPrincipais.Morador;
+import Condominio.Memoria;
+import Condominio.Verificacao;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -26,8 +30,8 @@ public class InterfaceMorador extends JFrame {
 	private JTextField txtCPFMorador;
 	private JTextField txtAptoMorador;
 	private JTextField txtTelefoneMorador;
-	Memoria memoria = new Memoria();
 	Morador morador;
+	Memoria memoria = new Memoria();
 	Verificacao verifica = new Verificacao();
 
 
@@ -116,7 +120,6 @@ public class InterfaceMorador extends JFrame {
 	
 
 	private void validacao() {
-		
 		String nome = txtNomeMorador.getText();
 		String cpf = txtCPFMorador.getText();
 		String apto = txtAptoMorador.getText();
@@ -124,12 +127,9 @@ public class InterfaceMorador extends JFrame {
 		
 		if(!verifica.ValidacaoMorador(nome, cpf, apto, telefone)){
 		    morador = new Morador(nome, cpf, apto, telefone);
-		    
-			memoria.adicionarMorador(morador);	
-			
+		    memoria.adicionarMorador(morador);	
 			JOptionPane.showMessageDialog(null,"CADASTRO MORADOR EFETUADO COM SUCESSO!");
 			dispose();
-			
 		}
 		else{
 			 JOptionPane.showMessageDialog(null,"EXISTE CAMPOS EM ABERTO");

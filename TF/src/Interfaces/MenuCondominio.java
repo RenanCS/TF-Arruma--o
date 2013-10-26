@@ -1,4 +1,4 @@
-package Condominio;
+package Interfaces;
 
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -18,13 +18,17 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
+import Condominio.LeituraGravacaoArquivo;
+import Condominio.Memoria;
+
 import java.awt.Toolkit;
 import java.util.ArrayList;
 
 public class MenuCondominio extends JFrame {
 
 	private JPanel contentPane;
-
+	Memoria memoria;
+	LeituraGravacaoArquivo grave;
 	/**
 	 * Launch the application.
 	 */
@@ -65,8 +69,6 @@ public class MenuCondominio extends JFrame {
 		JMenuItem mntmNewMenuItem1 = new JMenuItem("Visitante");
 		mnCadastrar.add(mntmNewMenuItem1);
 		
-	
-
 		JMenu mnHelp = new JMenu("Help");
 		menuBar.add(mnHelp);
 		
@@ -123,8 +125,8 @@ public class MenuCondominio extends JFrame {
 		btnOk.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				Memoria memoria = new Memoria();
-
+				memoria = new Memoria(grave.LerDadosMorador(), grave.lerDadosVisitante());
+				
 				if (rdbtnVisitaMes.isSelected()) {
 					GridVisitantes consultavisitante = new GridVisitantes();
 					consultavisitante.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -146,7 +148,7 @@ public class MenuCondominio extends JFrame {
 					visitante.setVisible(true);
 				}
 				if (rbtQuantidade.isSelected()) {
-					JOptionPane.showMessageDialog(null,"QUANTIDADE DE MORADORES SÃO: " + memoria.tamanhoMorador());
+					JOptionPane.showMessageDialog(null,"QUANTIDADE DE MORADORES SÃO: " + Memoria.tamanhoMorador());
 				}
 
 				

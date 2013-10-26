@@ -11,7 +11,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
+import ClassesPrincipais.Morador;
+import ClassesPrincipais.Visitante;
 
 
 public class LeituraGravacaoArquivo{
@@ -26,7 +30,7 @@ public static void gravarDados(ArrayList<Morador> mo) {
 				PrintWriter gravarArq = new PrintWriter(arq);
 				for (int i=0; i<mo.size(); i++)
 					{ 
-					gravarArq.printf("%s - %s - %s - %s; %n", mo.get(i).getNome(), mo.get(i).getCPF(), mo.get(i).getNapto(), mo.get(i).getTelefone()); 
+					gravarArq.printf("%s-%s-%s-%s%n", mo.get(i).getNome(), mo.get(i).getCPF(), mo.get(i).getNapto(), mo.get(i).getTelefone()); 
 					} 
 					gravarArq.close();
 				
@@ -38,15 +42,15 @@ public static void gravarDados(ArrayList<Morador> mo) {
 }
 
 
-public static void gravarDadosVisitante(ArrayList<Visitante> vis) {
+public static void gravarDadosVisitante(ArrayList<Visitante> visitante) {
 	
 	FileWriter arq;
 	try {
 		arq = new FileWriter("visitante.txt");
 		PrintWriter gravarArq = new PrintWriter(arq);
-		for (int i=0; i<vis.size(); i++)
+		for (int i=0; i<visitante.size(); i++)
 			{ 
-			gravarArq.printf("%s-%s-%s-%s%n", vis.get(i).getNome(), vis.get(i).getCPF(), vis.get(i).getNapto(), vis.get(i).getTime()); 
+			gravarArq.printf("%s-%s-%s-%s%n", visitante.get(i).getNome(), visitante.get(i).getCPF(), visitante.get(i).getNapto(), visitante.get(i).getTime()); 
 			} 
 			gravarArq.close();
 		
@@ -77,22 +81,51 @@ public static ArrayList lerDadosVisitante() {
 	        data = sc.next();
 	        vis.add(PessoaVisitante(nome, cpf, napto, data));
 	     }
-	    return vis
-	    		;
+	    return vis;
 	}
 	catch (IOException x)
 	{
 	    System.err.format("Erro de E/S: %s%n", x);
 	}
 	return null;
-	
 }
 
+public static ArrayList LerDadosMorador() {
+
+	ArrayList<Morador> morador = new ArrayList<Morador>();
+	Memoria memoria = new Memoria();
+	Path path2 = Paths.get("moradores.txt");
+	try (Scanner sc = new Scanner(Files.newBufferedReader(path2, Charset.defaultCharset())))
+	{
+	    sc.useDelimiter("[-\n]"); // separadores: - e nova linha
+	    //String header = sc.nextLine(); // pula cabeçalho
+	    String nome, cpf, data, telefone, napto; 
+	    
+	    while (sc.hasNext()) {
+	    	nome = sc.next();
+	        cpf = sc.next();
+	        napto = sc.next();
+	        telefone = sc.next();
+	        morador.add(PessoaMorador(nome, cpf, napto, telefone));
+	     }
+	    return morador;
+	}
+	catch (IOException x)
+	{
+	    System.err.format("Erro de E/S: %s%n", x);
+	}
+	return null;
+}
 
 private static Visitante PessoaVisitante(String nome, String cpf, String napto, String data) {
 	 Visitante vis;
 	 return vis = new Visitante(nome, cpf, napto, data);
-}	
+}
+
+private static Morador PessoaMorador(String nome, String cpf, String napto, String telefone) {
+	Morador mo;
+	return mo = new Morador(nome, cpf, napto, telefone);
+}
 
 
 }

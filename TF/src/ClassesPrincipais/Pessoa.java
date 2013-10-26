@@ -1,4 +1,4 @@
-package Condominio;
+package ClassesPrincipais;
 
 public class Pessoa{
 	

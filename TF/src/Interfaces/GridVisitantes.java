@@ -1,8 +1,11 @@
-package Condominio;
+package Interfaces;
 
 import java.awt.EventQueue;
 import java.util.ArrayList;
 import java.util.List;
+
+
+
 
 
 import javax.swing.JFrame;
@@ -10,10 +13,14 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
+import AcoesInterface.ContatoTableModel;
+import ClassesPrincipais.Visitante;
+import Condominio.LeituraGravacaoArquivo;
+
 
 public class GridVisitantes extends JFrame {
 
-	private JTable  		tblVisitante;
+	private JTable tblVisitante;
 	private ContatoTableModel model;
 	LeituraGravacaoArquivo grave;
 	public GridVisitantes(){
@@ -36,23 +43,6 @@ public class GridVisitantes extends JFrame {
 		}
 		return tblVisitante;
 	}
-
-	private ContatoTableModel getModel() {
-		if (model == null) {
-			model = (ContatoTableModel) getTblVisitantes().getModel();
-		}
-		return model;
-	}
-		
-	private List<Visitante> getVisitante() {
-		List<Visitante> vis = new ArrayList<Visitante>();
-		for (int i = 0; i < 10; i++) {
-			vis.add((Visitante) getVisitante());
-		}
-		return vis;
-	}
-	
-	
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {

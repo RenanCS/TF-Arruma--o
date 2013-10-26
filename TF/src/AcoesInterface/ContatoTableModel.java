@@ -1,12 +1,12 @@
-package Condominio;
+package AcoesInterface;
 
-import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.event.TableModelEvent;
 import javax.swing.table.AbstractTableModel;
+
+import ClassesPrincipais.Pessoa;
+import ClassesPrincipais.Visitante;
 
 public class ContatoTableModel extends AbstractTableModel{
 	
@@ -27,7 +27,7 @@ public class ContatoTableModel extends AbstractTableModel{
         // Está retornando o tamanho do array 
         return colunas.length;
     }
-    
+   
 
     /* Retorna a quantidade de linhas. */
     @Override
@@ -115,78 +115,4 @@ public class ContatoTableModel extends AbstractTableModel{
     
     
     
-    /////////////////////////
-    
-    /* Retorna o sócio da linha especificada. */
-    public Visitante getFuncionario(int indiceLinha) {
-            if(indiceLinha < dados.size()){
-                return dados.get(indiceLinha);
-            }
-        return null;
-    }
-    
-
-    /* Adiciona um registro. */
-    public void addVisitante(Visitante vis) {
-        // Adiciona o registro.
-        dados.add(vis);
-
-        // Pega a quantidade de registros e subtrai um para achar
-        // o último índice. É preciso subtrair um, pois os índices
-        // começam pelo zero.
-        int ultimoIndice = getRowCount() - 1;
-
-        // Reporta a mudança. O JTable recebe a notificação
-        // e se redesenha permitindo que visualizemos a atualização.
-        fireTableRowsInserted(ultimoIndice, ultimoIndice);
-    }
-    
-    
-    /* Remove a linha especificada. */
-    public void removeVisitante(int indiceLinha) {
-        // Remove o sócio da linha especificada.  
-            if(indiceLinha < dados.size()){
-                dados.remove(indiceLinha);
-
-        // Reporta a mudança. O JTable recebe a notificação
-        // e se redesenha permitindo que visualizemos a atualização.
-        fireTableRowsDeleted(indiceLinha, indiceLinha);
-            }
-
-    }
-    
-    
-    /* Adiciona uma lista de sócios ao final dos registros. */
-    public void addListaDeVisitante(List<Visitante> vis) {
-        // Pega o tamanho antigo da tabela.
-        int tamanhoAntigo = getRowCount();
-
-        // Adiciona os registros.
-        dados.addAll(vis);
-
-        // Reporta a mudança. O JTable recebe a notificação
-        // e se redesenha permitindo que visualizemos a atualização.
-        fireTableRowsInserted(tamanhoAntigo, getRowCount() - 1);
-    }
-    
-    /* Remove todos os registros. */
-    public void limpar() {
-        // Remove todos os elementos da lista de sócios.
-        dados.clear();
-
-        // Reporta a mudança. O JTable recebe a notificação
-        // e se redesenha permitindo que visualizemos a atualização.
-        fireTableDataChanged();
-    }
-    
-    
-    /* Verifica se este table model está vazio. */
-    public boolean isEmpty() {
-        return dados.isEmpty();
-    }
-    
-    public Object getObject(int index) {
-        return dados.get(index);
-    }
-	
 }
