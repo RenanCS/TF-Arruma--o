@@ -92,7 +92,7 @@ public class ContatoTableModel extends AbstractTableModel{
         case 1: 
             return vis.getCPF();
         case 2: 
-            return pes.getNome();
+            return vis.getNomemorador();
         case 3: 
             return vis.getTime();        
         default:

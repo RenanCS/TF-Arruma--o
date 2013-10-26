@@ -39,6 +39,17 @@ public class Memoria {
 		contador = morador.size();
 		return contador;
 	}
+	
+	public static String verificarVisitaMorador(String apto){
+		String pessoa = null;
+		for(Morador mo: morador){
+			if(mo.getNapto().equals(apto)){
+				pessoa = mo.getNome();
+				return pessoa;
+			}
+		}
+		return null;
+	}
 
 //	public void adicionaPesLeitura(Visitante pessoaVisitante) {
 	//	visitante.add(pessoaVisitante);

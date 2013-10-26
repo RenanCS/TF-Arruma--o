@@ -1,21 +1,29 @@
 package ClassesPrincipais;
 
-import java.util.List;
 
 public class Visitante extends Pessoa {
 
-private String time; 
+	private String time;
+	private String nomemorador;
 
 	public Visitante proxvi;
 	public Visitante antvi;
 
-	public Visitante(String nome, String CPF, String napto, String time){
-	super(nome, CPF, napto);
-	setTime(time);
-	proxvi = null;
-	antvi = null;
+	public Visitante(String nome, String CPF, String napto, String time, String nomemorador) {
+		super(nome, CPF, napto);
+		setNomemorador(nomemorador);
+		setTime(time);
+		proxvi = null;
+		antvi = null;
 	}
-    
+
+	public String getNomemorador() {
+		return nomemorador;
+	}
+
+	public void setNomemorador(String nomemorador) {
+		this.nomemorador = nomemorador;
+	}
 
 	public Visitante getProxvi() {
 		return proxvi;
@@ -32,9 +40,9 @@ private String time;
 	public void setAntvi(Visitante antvi) {
 		this.antvi = antvi;
 	}
-	
+
 	public Visitante() {
-		
+
 	}
 
 	public String getTime() {
@@ -51,5 +59,4 @@ private String time;
 				+ ", napto=" + napto + "]";
 	}
 
-	
 }

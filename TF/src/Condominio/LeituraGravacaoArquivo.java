@@ -21,7 +21,6 @@ import ClassesPrincipais.Visitante;
 public class LeituraGravacaoArquivo{
 		
 	
-
 public static void gravarDados(ArrayList<Morador> mo) {
 			
 			FileWriter arq;
@@ -41,7 +40,6 @@ public static void gravarDados(ArrayList<Morador> mo) {
 	
 }
 
-
 public static void gravarDadosVisitante(ArrayList<Visitante> visitante) {
 	
 	FileWriter arq;
@@ -50,7 +48,7 @@ public static void gravarDadosVisitante(ArrayList<Visitante> visitante) {
 		PrintWriter gravarArq = new PrintWriter(arq);
 		for (int i=0; i<visitante.size(); i++)
 			{ 
-			gravarArq.printf("%s-%s-%s-%s%n", visitante.get(i).getNome(), visitante.get(i).getCPF(), visitante.get(i).getNapto(), visitante.get(i).getTime()); 
+			gravarArq.printf("%s-%s-%s-%s-%s%n", visitante.get(i).getNome(), visitante.get(i).getCPF(), visitante.get(i).getNapto(), visitante.get(i).getNomemorador(), visitante.get(i).getTime()); 
 			} 
 			gravarArq.close();
 		
@@ -61,8 +59,6 @@ public static void gravarDadosVisitante(ArrayList<Visitante> visitante) {
 
 }
 
-
-
 public static ArrayList lerDadosVisitante() {
 	 
 	ArrayList<Visitante> vis = new ArrayList<Visitante>();
@@ -72,14 +68,15 @@ public static ArrayList lerDadosVisitante() {
 	{
 	    sc.useDelimiter("[-\n]"); // separadores: - e nova linha
 	    //String header = sc.nextLine(); // pula cabeçalho
-	    String nome, cpf, data, telefone, napto; 
+	    String nome, cpf, data, telefone, napto, nomemorador; 
 	    
 	    while (sc.hasNext()) {
 	    	nome = sc.next();
 	        cpf = sc.next();
 	        napto = sc.next();
+	        nomemorador = sc.next();
 	        data = sc.next();
-	        vis.add(PessoaVisitante(nome, cpf, napto, data));
+	        vis.add(PessoaVisitante(nome, cpf, napto, nomemorador, data));
 	     }
 	    return vis;
 	}
@@ -99,7 +96,7 @@ public static ArrayList LerDadosMorador() {
 	{
 	    sc.useDelimiter("[-\n]"); // separadores: - e nova linha
 	    //String header = sc.nextLine(); // pula cabeçalho
-	    String nome, cpf, data, telefone, napto; 
+	    String nome, cpf, data, telefone, napto, nomemorador; 
 	    
 	    while (sc.hasNext()) {
 	    	nome = sc.next();
@@ -117,9 +114,9 @@ public static ArrayList LerDadosMorador() {
 	return null;
 }
 
-private static Visitante PessoaVisitante(String nome, String cpf, String napto, String data) {
+private static Visitante PessoaVisitante(String nome, String cpf, String napto, String nomemorador, String data) {
 	 Visitante vis;
-	 return vis = new Visitante(nome, cpf, napto, data);
+	 return vis = new Visitante(nome, cpf, napto, nomemorador, data);
 }
 
 private static Morador PessoaMorador(String nome, String cpf, String napto, String telefone) {
