@@ -22,6 +22,10 @@ import javax.swing.SwingConstants;
 import ClassesPrincipais.Visitante;
 import Condominio.Memoria;
 import Condominio.Verificacao;
+import java.awt.Dialog.ModalExclusionType;
+import java.awt.Window.Type;
+import java.awt.Frame;
+import java.awt.ComponentOrientation;
 
 public class InterfaceVisitante extends JFrame {
 
@@ -56,7 +60,6 @@ public class InterfaceVisitante extends JFrame {
 	 * Create the frame.
 	 */
 	public InterfaceVisitante() {
-		setTitle("Alpro2.Visitante");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -100,7 +103,7 @@ public class InterfaceVisitante extends JFrame {
 				cadastrar();
 			}
 		});
-		btnVisitante.setBounds(276, 203, 148, 48);
+		btnVisitante.setBounds(227, 140, 148, 48);
 		contentPane.add(btnVisitante);
 
 		JLabel lblCadastroDeVisitantes = new JLabel("Cadastro de Visitantes");

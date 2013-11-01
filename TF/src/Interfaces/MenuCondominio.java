@@ -64,9 +64,25 @@ public class MenuCondominio extends JFrame {
 		mnMenu.add(mnCadastrar);
 
 		JMenuItem mntmNewMenuItem = new JMenuItem("Morador");
+		mntmNewMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				InterfaceMorador morador = new InterfaceMorador();
+				morador.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				morador.setLocationRelativeTo(null);
+				morador.setVisible(true);
+			}
+		});
 		mnCadastrar.add(mntmNewMenuItem);
 		
 		JMenuItem mntmNewMenuItem1 = new JMenuItem("Visitante");
+		mntmNewMenuItem1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				InterfaceVisitante visitante = new InterfaceVisitante();
+				visitante.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				visitante.setLocationRelativeTo(null);
+				visitante.setVisible(true);				
+			}
+		});
 		mnCadastrar.add(mntmNewMenuItem1);
 		
 		JMenu mnHelp = new JMenu("Help");
@@ -77,8 +93,7 @@ public class MenuCondominio extends JFrame {
 		
 		JMenuItem mntmContato = new JMenuItem("Contato Fornecer");
 		mnHelp.add(mntmContato);
-		
-		
+				
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -90,8 +105,6 @@ public class MenuCondominio extends JFrame {
 		lblMenu.setBounds(122, 11, 156, 44);
 		contentPane.add(lblMenu);
 		
-		
-
 		final JRadioButton rdbtnCadastrarVisitante = new JRadioButton("Cadastrar Visitante");
 		rdbtnCadastrarVisitante.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		rdbtnCadastrarVisitante.setBounds(49, 80, 156, 23);
