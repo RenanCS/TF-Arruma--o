@@ -1,24 +1,21 @@
 package AcoesInterface;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.swing.table.AbstractTableModel;
-
 import ClassesPrincipais.Pessoa;
 import ClassesPrincipais.Visitante;
+import DoubleListIterator.ListDoubleLinked;
 
 public class ContatoTableModel extends AbstractTableModel{
 	
-	private List<Visitante> dados;
+	private ListDoubleLinked<Visitante> dados;
 	private String[] colunas = {"Visitante", "CPF", "Morador", "Data/Hora"};
 	
 	public ContatoTableModel(){
-		dados = new ArrayList<Visitante>();
+		dados = new ListDoubleLinked<Visitante>();
 	}
 
-	public 	ContatoTableModel(List<Visitante> listavisitante){
-		dados = new ArrayList<Visitante>(listavisitante);
+	public 	ContatoTableModel(ListDoubleLinked<Visitante> listDoubleLinked){
+		dados = listDoubleLinked;
 	}
 
 	/* Retorna a quantidade de colunas. */
@@ -92,9 +89,9 @@ public class ContatoTableModel extends AbstractTableModel{
         case 1: 
             return vis.getCPF();
         case 2: 
-            return vis.getNomemorador();
+            return vis.getTime();
         case 3: 
-            return vis.getTime();        
+            return vis.getNomemorador();        
         default:
             // Se o índice da coluna não for válido, lança um
             // IndexOutOfBoundsException (Exceção de índice fora dos limites).

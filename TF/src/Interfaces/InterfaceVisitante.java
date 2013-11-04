@@ -137,8 +137,7 @@ public class InterfaceVisitante extends JFrame {
 				vis.setTime(String.format(data.format(cal.getTime())));
 				vis.setNomemorador(morador);
 				memoria.adicionaPes(vis);
-				JOptionPane.showMessageDialog(null,
-						"CADASTRO VISITANTE EFETUADO COM SUCESSO!");
+				JOptionPane.showMessageDialog(null,"CADASTRO VISITANTE EFETUADO COM SUCESSO!");
 				dispose();
 
 			} else {

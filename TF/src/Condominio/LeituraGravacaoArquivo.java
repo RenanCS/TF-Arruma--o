@@ -16,6 +16,7 @@ import java.util.Scanner;
 
 import ClassesPrincipais.Morador;
 import ClassesPrincipais.Visitante;
+import DoubleListIterator.ListDoubleLinked;
 
 
 public class LeituraGravacaoArquivo{
@@ -40,7 +41,7 @@ public static void gravarDados(ArrayList<Morador> mo) {
 	
 }
 
-public static void gravarDadosVisitante(ArrayList<Visitante> visitante) {
+public static void gravarDadosVisitante(ListDoubleLinked<Visitante> visitante ) {
 	
 	FileWriter arq;
 	try {
@@ -59,9 +60,9 @@ public static void gravarDadosVisitante(ArrayList<Visitante> visitante) {
 
 }
 
-public static ArrayList lerDadosVisitante() {
+public static ListDoubleLinked<Visitante> lerDadosVisitante() {
 	 
-	ArrayList<Visitante> vis = new ArrayList<Visitante>();
+	ListDoubleLinked<Visitante> vis = new ListDoubleLinked<Visitante>();
 	Memoria memoria = new Memoria();
 	Path path2 = Paths.get("visitante.txt");
 	try (Scanner sc = new Scanner(Files.newBufferedReader(path2, Charset.defaultCharset())))

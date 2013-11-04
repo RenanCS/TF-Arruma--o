@@ -7,21 +7,22 @@ import javax.swing.JOptionPane;
 
 import ClassesPrincipais.Morador;
 import ClassesPrincipais.Visitante;
+import DoubleListIterator.ListDoubleLinked;
 
 public class Memoria {
 
 	
     public static ArrayList<Morador> morador = new ArrayList<Morador>(); 
-    public static ArrayList<Visitante> visitante = new ArrayList<Visitante>(); 
+    public static ListDoubleLinked<Visitante> visitante = new ListDoubleLinked<Visitante>(); 
 	public static int contador = 0;
 	
     public Memoria(){   	
 
     }
        
-    public Memoria(ArrayList listamorador, ArrayList listavisitante) {
+    public Memoria(ArrayList listamorador, ListDoubleLinked listavisitante) {
     	morador = new ArrayList<Morador>(listamorador);     	
-    	visitante = new ArrayList<Visitante>(listavisitante);
+    	visitante = listavisitante;
     	contador = listamorador.size();
 	}
 	
