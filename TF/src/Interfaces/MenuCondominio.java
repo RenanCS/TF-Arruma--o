@@ -25,7 +25,7 @@ import java.awt.Toolkit;
 import java.util.ArrayList;
 
 public class MenuCondominio extends JFrame {
-
+//A
 	private JPanel contentPane;
 	Memoria memoria;
 	LeituraGravacaoArquivo grave;
