@@ -18,35 +18,45 @@ public class ListDoubleLinked<E> implements Iterable<E> {
      * Cria uma lista vazia.
      */
     public ListDoubleLinked() {
-        header = new Node<E>(null); // cria sentinela de início
+        header = new Node<E>(null); // cria sentinela de inï¿½cio
         trailer = new Node<E>(null);// cria sentinela de fim
-        header.next = trailer; // conecta sentinela de início no sentinela de fim
-        trailer.prev = header; // conecta sentinela de fim no sentinela de início
-        count = 0; // indica que a lista está vazia
+        header.next = trailer; // conecta sentinela de inï¿½cio no sentinela de fim
+        trailer.prev = header; // conecta sentinela de fim no sentinela de inï¿½cio
+        count = 0; // indica que a lista estï¿½ vazia
     }
  
     
 
 	public void add(E e) {
-        Node<E> n = new Node<E>(e); // novo nodo que será adicionado à lista
-        Node<E> last = trailer.prev;// nodo anterior ao novo nodo, após a
-                                    // inserção
-        n.prev = last; // conecta o novo com o atual último elemento
+        Node<E> n = new Node<E>(e); // novo nodo que serï¿½ adicionado ï¿½ lista
+        Node<E> last = trailer.prev;// nodo anterior ao novo nodo, apï¿½s a
+                                    // inserï¿½ï¿½o
+        n.prev = last; // conecta o novo com o atual ï¿½ltimo elemento
         n.next = trailer; // conecta o novo com o sentinela de fim
-        last.next = n; // conecta o último elemento atual com o novo
+        last.next = n; // conecta o ï¿½ltimo elemento atual com o novo
         trailer.prev = n; // conecta o sentinela de fim com o novo
         count++; // registra que a lista recebeu mais um nodo
     }
  
     public void add(int index, E element) {
-        // TODO Auto-generated method stub
- 
+         
+         Node<E> aux = header.next;
+         for (int pos = 0; pos < index; pos++)
+            aux = aux.next;
+            
+           Node<E> n = New Nodo<E>(element);
+           Node<E> ant = aux.prev;
+ n.next = aux;
+ n.prev = ant;
+ ant.next = n;
+//
+count++;
     }
  
     public void clear() {
-        header.next = trailer; // conecta sentinela de início no sentinela de fim
-        trailer.prev = header; // conecta sentinela de fim no sentinela de início
-        count = 0; // indica que a lista está vazia
+        header.next = trailer; // conecta sentinela de inï¿½cio no sentinela de fim
+        trailer.prev = header; // conecta sentinela de fim no sentinela de inï¿½cio
+        count = 0; // indica que a lista estï¿½ vazia
     }
  
     public boolean contains(E e) {
@@ -55,9 +65,16 @@ public class ListDoubleLinked<E> implements Iterable<E> {
     }
  
     public E get(int index) {
-        // TODO Auto-generated method stub
-        return null;
-    }
+       if ((index < 0) || (index >= count)) {
+            throw new IndexOutOfBoundsException("Pos. invï¿½lida: " + index);
+        }
+        Node<E> aux = header.next;
+        for (int pos = 0; pos < index; pos++)
+            aux = aux.next;
+            
+      return aux.element;
+      
+      }
  
     public int indexOf(E e) {
         Node<E> n = header.next;
@@ -77,13 +94,16 @@ public class ListDoubleLinked<E> implements Iterable<E> {
     }
  
     public boolean remove(E e) {
-        // TODO Auto-generated method stub
-        return false;
+      int pos = indexof(e)
+      if(pos == -1){
+      return false;	
+      }
+      //////
     }
  
     public E remove(int index) {
         if ((index < 0) || (index >= count)) {
-            throw new IndexOutOfBoundsException("Pos. inválida: " + index);
+            throw new IndexOutOfBoundsException("Pos. invï¿½lida: " + index);
         }
         Node<E> aux = header.next;
         for (int pos = 0; pos < index; pos++)
@@ -107,8 +127,7 @@ public class ListDoubleLinked<E> implements Iterable<E> {
     }
  
     public void addFirst(E e) {
-        // TODO Auto-generated method stub
- 
+    	add(0,e);
     }
  
     public E getFirst() {
@@ -122,20 +141,20 @@ public class ListDoubleLinked<E> implements Iterable<E> {
     }
  
     public E removeFirst() {
-        if (isEmpty()) { // não há elemento para remover
+        if (isEmpty()) { // nï¿½o hï¿½ elemento para remover
             throw new NoSuchElementException();
         }
         Node<E> target = header.next; // indica o primeiro nodo da lista (first)
-        E item = target.element; // coleta o conteúdo do primeiro nodo
+        E item = target.element; // coleta o conteï¿½do do primeiro nodo
         Node<E> prox = target.next; // indica o segundo nodo da lista atual
-        prox.prev = header; // conecta o segundo nodo com o sentinela de início
-        header.next = prox; // conecta o sentinela de início com o segundo nodo
+        prox.prev = header; // conecta o segundo nodo com o sentinela de inï¿½cio
+        header.next = prox; // conecta o sentinela de inï¿½cio com o segundo nodo
                             // da lista original
         target.prev = null; // libera dados do nodo removido
         target.element = null;
         target.next = null;
         count--; // registra que a lista perdeu um nodo
-        return item; // retorna a informação que havia no nodo destruído
+        return item; // retorna a informaï¿½ï¿½o que havia no nodo destruï¿½do
     }
  
     public E removeLast() {
@@ -143,12 +162,12 @@ public class ListDoubleLinked<E> implements Iterable<E> {
             throw new NoSuchElementException("Lista vazia!");
         }
  
-        Node<E> aux = trailer.prev; // último da lista
-        Node<E> beforeAux = aux.prev; // penúltimo da lista ou sentinela
+        Node<E> aux = trailer.prev; // ï¿½ltimo da lista
+        Node<E> beforeAux = aux.prev; // penï¿½ltimo da lista ou sentinela
  
         E value = aux.element; // recupera valor do nodo a ser removido
  
-        beforeAux.next = trailer; // penúltimo passa a ser o último nodo
+        beforeAux.next = trailer; // penï¿½ltimo passa a ser o ï¿½ltimo nodo
         trailer.prev = beforeAux; // .. ou a lista fica vazia
  
         count--;
